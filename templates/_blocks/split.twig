@@ -1,0 +1,77 @@
+{# ==================================
+SPLIT 50/50 between text and image.
+Automatically alternate L/R using cycle()
+===================================== #}
+
+{# set block background colours #}
+{% set wrapperClasses = [] %}
+{% if block is defined and block.sectionBG is defined %}
+	{% switch block.sectionBG %}
+		{% case 'white' %}
+			{% set wrapperClasses = wrapperClasses|merge(['bg-white']) %}
+		{% case 'silver' %}
+			{% set wrapperClasses = wrapperClasses|merge(['bg-gray-100']) %}
+		{% default %}
+			{% set wrapperClasses = wrapperClasses|merge(['bg-white']) %}
+	{% endswitch %}
+{% endif %}
+
+{# set a min-height on the full-width options #}
+{% if block.imgOptions == 'fullWidth' or block.imgOptions == 'fullWidthFullHeight' %}
+	{% set wrapperClasses = wrapperClasses|merge(['md:min-h-[450px] with-bg-img']) %}
+{% endif %}
+
+{% if block.img|length %}
+	{% set img = block.img[0] ?: block.img|length ? block.img.one() %}
+{% endif %}
+
+{% if block.img|length or block.body|length %}
+	<section id="section-{{ loop.index }}" class="flex fl:py-16 overflow-hidden relative {{ wrapperClasses|join(' ') }}">
+		<div class="m-auto mt-auto max-w-screen-xl w-full px-4 sm:px-6 lg:px-8">
+			<div class="md:flex {{ block.imgOptions == 'constrained' ? 'items-center' }} {{ cycle(['flex-row-reverse',''],loop.index) }}">
+				{% if block.body|length %}
+					<div class="flex flex-col justify-center {{ block.splitOptions == '50/50' ? 'md:w-1/2' : 'md:w-3/5' }} {% if block.imgOptions == 'constrained' or block.imgOptions == 'constrainedFullHeight' %}{{ cycle(['md:pl-8','md:pr-8'],loop.index) }}{% else %}{{ cycle(['md:pl-16','md:pr-16'],loop.index) }}{% endif %}">
+						{% if block.sectionHeading|length %}
+							<h2>{{ block.sectionHeading }}</h2>
+						{% endif %}
+
+						{{ block.body ?? null }}
+
+						{% if block.buttonLink|length %}
+							<div class="{{ block.body|length or block.sectionHeading|length ? 'spacing' }}">
+								{% include '_partials/button.twig' with {
+									link: block.buttonLink,
+									label: block.buttonLabel ?? null
+								} only %}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if img is defined %}
+					{% set theTransform = transforms.split50 %}
+					{% if block.imgOptions == 'constrained' or block.imgOptions == 'constrainedFullHeight' %}
+						{# contained #}
+						<div class="{{ cycle(['md:pr-8','md:pl-8'],loop.index) }} {{ block.splitOptions == '50/50' ? 'md:w-1/2' : 'md:w-2/5' }}">
+							<div class="w-full h-full mt-8 md:mt-0">
+								<picture class="{{ block.imgOptions == 'constrainedFullHeight' ? 'h-full' }}">
+									<source srcset="{{ img.url({ transform: theTransform, format: 'webp' }) }}" type="image/webp">
+									<img src="{{ img.url(theTransform) }}" class="mt-0 object-cover object-center w-full {{ block.imgOptions == 'constrainedFullHeight' ? 'h-full' }} max-w-none" alt="{{ img.alt ?? null }}">
+								</picture>
+								{# <img class="object-cover object-center w-full {{ block.imgOptions == 'constrainedFullHeight' ? 'h-full' }} max-w-none" src="{{ img.url(transforms.split50) }}" alt="{{ img.alt ?? null }}"> #}
+							</div>
+						</div>
+					{% else %}
+						{# full width #}
+						<div class="mt-8 md:mt-0 {{ block.splitOptions == '50/50' ? 'md:w-1/2' : 'md:w-2/5' }} md:absolute {{ block.imgOptions == 'fullWidthFullHeight' ? 'top-0 bottom-0' : 'top-1/2 md:transform md:-translate-y-1/2' }} {{ cycle(['left-0','right-0'],loop.index) }}">
+							<picture class="{{ block.imgOptions == 'fullWidthFullHeight' ? 'h-full' }}">
+                                <source srcset="{{ img.url({ transform: theTransform, format: 'webp' }) }}" type="image/webp">
+                                <img src="{{ img.url(theTransform) }}" class="mt-0 object-cover object-center w-full {{ block.imgOptions == 'fullWidthFullHeight' ? 'h-full' }} max-w-none" alt="{{ img.alt ?? null }}">
+                            </picture>
+							{# <img class="object-cover object-center w-full {{ block.imgOptions == 'fullWidthFullHeight' ? 'h-full' }} max-w-none" src="{{ img.url(transforms.split50) }}" alt="{{ img.alt ?? null }}"> #}
+						</div>
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

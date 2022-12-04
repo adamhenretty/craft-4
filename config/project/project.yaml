@@ -1,0 +1,319 @@
+dateModified: 1670170444
+elementSources:
+  craft\elements\Asset:
+    -
+      defaultSort:
+        - dateCreated
+        - desc
+      disabled: false
+      key: 'volume:b51c3bf7-bd4c-46f9-92d5-c548637e190a' # Images
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - alt
+        - link
+      type: native
+    -
+      key: 'volume:fafbc7c6-c05b-4945-8db7-72ae3d199156' # Downloads
+      type: native
+    -
+      key: 'folder:24e311ab-4066-40ac-aeb2-338fd4978ce2'
+      type: native
+  craft\elements\Entry:
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - section
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      key: 'section:329fb3c3-eacd-4f5a-8086-8cd96ac705fc' # Home pages
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      disabled: false
+      key: 'section:52703ec7-c7f2-4493-b57d-a6193c1942e8' # Pages
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:505b38bf-8335-4f08-8031-39bc946af4ab' # FAQs
+      tableAttributes:
+        - postDate
+        - expiryDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:5fa00c47-4ca4-4b3a-8085-bb89956938eb' # Videos
+      tableAttributes:
+        - postDate
+        - expiryDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:115249ea-741c-48f9-8ba6-72e0c5b2f8ca' # Widgets
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - type
+      type: native
+email:
+  fromEmail: $SYSTEM_EMAIL
+  fromName: $SYSTEM_NAME
+  replyToEmail: null
+  template: null
+  transportSettings:
+    command: '/usr/sbin/sendmail -bs'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  downloads:
+    hasUrls: true
+    name: Downloads
+    settings:
+      path: '@webroot/media/downloads'
+    type: craft\fs\Local
+    url: /media/downloads
+  images:
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@webroot/media/images'
+    type: craft\fs\Local
+    url: /media/images
+meta:
+  __names__:
+    0bed22d4-f57c-4df7-a891-4467df6fdcd7: 'Home pages' # Home pages
+    1bdeb9aa-67d7-4844-bfb2-f5720639b516: 'Split options' # Split options
+    2bb103e7-f495-40cf-9b2e-f90b979cce07: Question # Question
+    2cb7f2a3-78fb-4dc5-9545-aaff10870782: Body # Body
+    2dcc0933-0db0-4d99-b21d-b7bcfa05c2e1: Globals # Globals
+    3a55636c-f114-4ca1-84a3-f568f17a51b0: 'Browser title' # Browser title
+    3d634c54-df24-4f07-95ad-4c8d2c1a20a2: 'Email address' # Email address
+    4d75c350-59e2-4ecc-b469-bb97f6ff276d: 'Section background colour' # Section background colour
+    4ec92ad5-6c2b-42c6-9c23-835ef9667ca2: Widget # Widget
+    4edf87c7-e201-4849-a672-95a175e3defa: 'Form select' # Form select
+    4f55994d-87ef-4572-8626-f46d460fb708: Instagram # Instagram
+    5beb9697-853c-400d-825c-5dc6e8f9707e: 'No index' # No index
+    5d0c0bce-e3a1-4456-9adf-e626fda6307d: FAQs # FAQs
+    5ee11f17-e8ba-474e-9805-861a20d1f807: Default # Default
+    5fa00c47-4ca4-4b3a-8085-bb89956938eb: Videos # Videos
+    6adb7e46-7480-48f0-8503-676f5dcb6d72: 'Section heading' # Section heading
+    7d4c5a59-dee3-4cc5-9113-4353bbfcbc88: Answer # Answer
+    7dacd005-9633-40b1-9d20-5b168dc1590e: 'Social links' # Social links
+    7ebfcde4-6eaf-43f9-b8d0-c36884f67bc0: 'Banner overlay opacity' # Banner overlay opacity
+    7fc052f5-ca32-4ff6-aa15-69c9f63ac859: 'Body end scripts' # Body end scripts
+    09b6e13d-5b43-4e45-b956-1532e3fc1e7d: 'Section heading' # Section heading
+    9ba80f98-3521-4d95-8103-833cc54f9074: 'Twitter card' # Twitter card
+    9fad9235-aabb-471b-b899-96f5c7efc0f2: 'Primary navigation' # Primary navigation
+    10a15281-2859-4325-96fa-26b23d4ebd52: 'Text alignment' # Text alignment
+    13fe3115-fbba-47a5-8b57-8a1b75d0ff83: 'Button label' # Button label
+    15e51119-6b95-4040-9d20-8a0fc06e7e4f: Video # Video
+    27fd5441-8230-4f21-8d4c-ae215e7076df: 'Comedy with Romesh' # Comedy with Romesh
+    31c558bc-3f82-4d29-a067-7fa2b93522de: Body # Body
+    33ad3504-17bf-43e1-a94b-eea6a698c8b6: Body # Body
+    42c541fc-75d1-4e6c-884c-75af2a79490c: 'YouTube video ID' # YouTube video ID
+    45ee1d4e-96ee-4415-bd34-ad8dd562b918: Image(s) # Image(s)
+    49e4be6b-31e8-4637-970f-72b746d0dd07: 'OG title override' # OG title override
+    63c45d1f-c3f7-4c75-9731-7acdfcd1750f: 'Inline thank you message' # Inline thank you message
+    64ddacfa-0b2f-4cbc-a78c-b249a5c4621d: Text # Text
+    93f4db62-4e9e-46d9-aa94-e561f7360bb7: 'Head scripts' # Head scripts
+    096e0833-599f-412d-96d1-e509f94c841e: 'Twitter creator' # Twitter creator
+    98b26e91-5911-4ff0-a800-b711b72e563c: 'Body start scripts' # Body start scripts
+    329fb3c3-eacd-4f5a-8086-8cd96ac705fc: 'Home pages' # Home pages
+    505b38bf-8335-4f08-8031-39bc946af4ab: FAQs # FAQs
+    592ba205-ab58-425a-8142-e6228422ae17: 'Text/Image split' # Text/Image split
+    661f0cbe-8667-4984-aea8-55239d2f6e8e: 'Body builder' # Body builder
+    1586c00e-9c47-4a90-96db-2345cbb40436: 'Contact details' # Contact details
+    3751e361-4cf5-4026-9a43-f01800af29ac: Widgets # Widgets
+    3771e22b-18c8-476b-9ea9-adb5d2cfd92c: 'Section heading' # Section heading
+    4581a2fb-8ab7-44a1-a4ab-d85dfed32337: 'Banner image' # Banner image
+    5423f870-5eef-4089-acc3-4a4ec35d8068: 'Notification recipients' # Notification recipients
+    6238be16-9290-47d5-9dde-43e33a167037: 'Facebook admins' # Facebook admins
+    6324b785-716a-4e39-8908-abaa2c89149b: Default # Default
+    9539a622-068a-48f3-b639-3eaa714ae660: FAQs # FAQs
+    52703ec7-c7f2-4493-b57d-a6193c1942e8: Pages # Pages
+    55409bef-f02b-43a6-87ba-6645890db160: 'Meta description' # Meta description
+    75347aed-7cd3-4a88-a475-d94c64fff91b: 'OG type' # OG type
+    93911dec-d597-4048-be70-3822341db5c8: 'OG image' # OG image
+    115249ea-741c-48f9-8ba6-72e0c5b2f8ca: Widgets # Widgets
+    525289a8-c59f-418d-b0f0-d6395e8adc28: Address # Address
+    2362705b-9855-402e-8e77-df0481694d79: 'Section background colour' # Section background colour
+    5535896e-716a-4427-a3b2-64a5398facc0: 'Footer navigation' # Footer navigation
+    8903723c-55f6-472d-9b4e-2e6321b91ba7: Widget # Widget
+    26827705-a0c2-430f-89e7-8ec732440da2: 'Section background colour' # Section background colour
+    56716528-cd41-42c1-894c-9b5ee770b2ea: 'List entries from...' # List entries from...
+    89306059-6272-4a67-8b56-68ad2a66e0fe: 'Section background colour' # Section background colour
+    a7c5d5f5-629e-4c67-8561-e4a13c2cddaa: 'Section background colour' # Section background colour
+    aa0046e8-dcfd-4652-99b7-1234f595bfd5: Facebook # Facebook
+    aa3b5598-d520-4c29-a087-9762caf5cdb8: Video # Video
+    ab8a0a53-54af-4c10-90ea-d34258125fae: 'Linked In' # Linked In
+    ac776189-eb45-4663-a943-42e6263a2928: 'OG description' # OG description
+    adf503c9-6a45-44ab-a6c8-a5426f5635bb: Heading # Heading
+    af1123bd-6d8b-4998-8f80-f9c90c83d965: 'Thank you page url' # Thank you page url
+    b51c3bf7-bd4c-46f9-92d5-c548637e190a: Images # Images
+    b99e46fe-a420-4fd0-abfc-8eb0989ea429: Boilerplate # Boilerplate
+    bb4121e8-2226-4163-8489-28c171d4ec24: Form # Form
+    c073d458-3743-4e75-acc2-84b4e3337f8f: SEO # SEO
+    c9bf4b48-9d48-447d-af8c-2e886fbef69a: 'Image style' # Image style
+    ca0d1dfe-15a3-4614-b3d0-0381ea62e4d6: Navigation # Navigation
+    d6de9704-4f2d-488c-b526-7edee9635399: Scripts # Scripts
+    d7fb4fb2-6296-4cb8-9dde-126519c3715b: 'Section heading' # Section heading
+    e0a3410a-5c32-4a89-9bb9-42f46efe2ca6: 'Button link' # Button link
+    e2f648e0-74ad-4090-9a76-9da8afdc0043: Image(s) # Image(s)
+    e525d53f-7298-43c3-8dca-edf8cfd1f8b2: Common # Common
+    ec768514-1ace-48d1-a39f-63b17f6e1fc6: 'Public Schema' # Public Schema
+    ee12cfc1-e007-4254-bc36-f5ff21ea00bd: Body # Body
+    eef6f35a-17b0-46cf-8608-c0aeeb3c8714: 'Phone number' # Phone number
+    f1ed96c8-41e1-41af-95dd-225238b54c4b: 'Section background colour' # Section background colour
+    f2d836d8-5576-4f7d-97a7-3cbe6aa415e7: 'Twitter username' # Twitter username
+    f7fedf7d-f898-472b-a955-8e2d7f040954: Image # Image
+    f39fc309-38af-4102-a273-2f39c074cd50: 'Banner title' # Banner title
+    f7731fc1-9baf-42dd-af10-32333e90cbf4: Default # Default
+    fafbc7c6-c05b-4945-8db7-72ae3d199156: Downloads # Downloads
+    fb2c7357-1d97-45f9-a8f4-c214dcea3154: 'Banner size' # Banner size
+plugins:
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  freeform:
+    edition: pro
+    enabled: true
+    licenseKey: 8562TC9Y7FGO0JLAGKQA79YI
+    schemaVersion: 4.2.2
+    settings:
+      ajaxByDefault: ''
+      alertNotificationRecipients: null
+      allowFileTemplateEdit: true
+      autoScroll: ''
+      autoScrollToErrors: ''
+      badgeType: all
+      blockedEmails: null
+      blockedEmailsError: 'Invalid Email Address'
+      blockedIpAddresses: null
+      blockedKeywords: null
+      blockedKeywordsError: 'Invalid Entry Data'
+      bypassSpamCheckOnLoggedInUsers: false
+      clientDigestFrequency: 1
+      clientDigestRecipients: null
+      customErrorMessage: null
+      customHoneypotName: null
+      defaultTemplates: ''
+      defaultView: dashboard
+      digestFrequency: 1
+      digestOnlyOnProduction: false
+      digestRecipients: null
+      displayFeed: true
+      emailTemplateDefault: files
+      emailTemplateDirectory: null
+      emailTemplateStorageType: files_database
+      exportHandlesAsNames: false
+      exportLabels: false
+      fieldDisplayOrder: name
+      fillWithGet: ''
+      footerScripts: false
+      formFieldShowOnlyAllowedForms: false
+      formSubmitDisable: ''
+      formSubmitExpiration: null
+      formTemplateDirectory: null
+      formattingTemplate: tailwind-3.twig
+      freeformHoneypot: true
+      freeformHoneypotEnhancement: false
+      hideBannerDemo: false
+      hideBannerOldFreeform: false
+      minimumSubmitTime: null
+      pluginName: null
+      purgableSpamAgeInDays: null
+      purgableSubmissionAgeInDays: null
+      purgableUnfinalizedAssetAgeInMinutes: 180
+      recaptchaBehaviour: display_error
+      recaptchaEnabled: false
+      recaptchaErrorMessage: 'Please verify that you are not a robot.'
+      recaptchaKey: null
+      recaptchaLazyLoad: false
+      recaptchaMinScore: 0.5
+      recaptchaSecret: null
+      recaptchaSize: normal
+      recaptchaTheme: light
+      recaptchaType: v2_checkbox
+      rememberPageSubmitOrder: ''
+      removeNewlines: false
+      renderFormHtmlInCpViews: '1'
+      salesforce_client_id: null
+      salesforce_client_secret: null
+      salesforce_password: null
+      salesforce_username: null
+      saveFormSessionLimit: '10'
+      saveFormTtl: '30'
+      scriptInsertLocation: manual
+      scriptInsertType: pointers
+      sessionContext: payload
+      sessionContextCount: '100'
+      sessionContextSecret: ''
+      sessionContextTimeToLiveMinutes: '180'
+      sessionEntryMaxCount: 50
+      sessionEntryTTL: 10800
+      showErrorsForBlockedEmails: false
+      showErrorsForBlockedKeywords: false
+      showTutorial: ''
+      spamFolderEnabled: true
+      spamProtectionBehaviour: simulate_success
+      submissionThrottlingCount: null
+      submissionThrottlingTimeFrame: null
+      successTemplateDirectory: null
+      twigInHtml: ''
+      twigInHtmlIsolatedMode: '1'
+      updateSearchIndexes: true
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  mix:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+system:
+  edition: solo
+  live: true
+  name: $SYSTEM_NAME
+  retryDuration: null
+  schemaVersion: 4.0.0.9
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  deactivateByDefault: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

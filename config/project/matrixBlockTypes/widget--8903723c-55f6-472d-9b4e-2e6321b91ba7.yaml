@@ -1,0 +1,140 @@
+field: 661f0cbe-8667-4984-aea8-55239d2f6e8e # Body builder
+fieldLayouts:
+  72daa24c-2eb3-4756-874a-76ae13907817:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 3771e22b-18c8-476b-9ea9-adb5d2cfd92c # Section heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a3c99057-35e9-42a5-89e6-b856b161f283
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 89306059-6272-4a67-8b56-68ad2a66e0fe # Section background colour
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 15d81ac9-25cd-47bb-8d72-456c29f698c4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 4ec92ad5-6c2b-42c6-9c23-835ef9667ca2 # Widget
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3d28f668-93d7-40d7-9322-32605e3b9db6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f28f10fc-3750-4a98-8f35-c72699082509
+        userCondition: null
+fields:
+  4ec92ad5-6c2b-42c6-9c23-835ef9667ca2: # Widget
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: widget
+    instructions: null
+    name: Widget
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      localizeRelations: false
+      maxRelations: 1
+      minRelations: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Entry
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\entries\EntryCondition
+      selectionLabel: null
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:115249ea-741c-48f9-8ba6-72e0c5b2f8ca' # Widgets
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  3771e22b-18c8-476b-9ea9-adb5d2cfd92c: # Section heading
+    columnSuffix: qmiwxirk
+    contentColumnType: text
+    fieldGroup: null
+    handle: sectionHeading
+    instructions: null
+    name: 'Section heading'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  89306059-6272-4a67-8b56-68ad2a66e0fe: # Section background colour
+    columnSuffix: dksxavsh
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionBG
+    instructions: null
+    name: 'Section background colour'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - White
+            -
+              - value
+              - white
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Silver
+            -
+              - value
+              - silver
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: widget
+name: Widget
+sortOrder: 6

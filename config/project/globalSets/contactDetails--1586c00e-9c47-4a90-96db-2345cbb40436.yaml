@@ -1,0 +1,48 @@
+fieldLayouts:
+  f9a3bba6-d7b0-49c8-9495-a743ff799fb1:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 3d634c54-df24-4f07-95ad-4c8d2c1a20a2 # Email address
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d7b2a503-5020-4942-8717-6277e8fed31f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: eef6f35a-17b0-46cf-8608-c0aeeb3c8714 # Phone number
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cdc7415c-0dbe-4f71-aa1e-c7327228f816
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 525289a8-c59f-418d-b0f0-d6395e8adc28 # Address
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 988ce0b7-b9f3-421f-b1ef-ee30f7aebe63
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c8d1e80a-972c-4253-8feb-b38b7d587af4
+        userCondition: null
+handle: contactDetails
+name: 'Contact details'
+sortOrder: 2

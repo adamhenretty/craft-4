@@ -1,0 +1,52 @@
+{# ==================================
+HIGHLIGHT BLOCKS. For a green/red/grey box of content.
+
+Params:
+
+* variants (string or array):
+	- error
+	- success
+	- onBrand (tweaks for when the box is on a brand-coloured background)
+	- onSilver
+
+===================================== #}
+
+{% set variants = variants ?? [] %}
+{% set variants = variants is iterable ? variants : [variants] %}
+
+{# ======================================================================= #}
+
+{% set _baseClasses = 'border p-6' %}
+
+{% set _regularClasses = 'bg-gray-50 text-gray-700' %}
+{% set _regularOnWhiteClasses = _baseClasses ~ ' ' ~ _regularClasses ~ ' border-gray-200' %}
+{% set _regularOnBrandClasses = _baseClasses ~ ' ' ~ _regularClasses ~ ' border-transparent' %}
+
+{% set _successClasses = 'bg-green-50 text-green-700' %}
+{% set _successOnWhiteClasses = _baseClasses ~ ' ' ~ _successClasses ~ ' border-green-200' %}
+{% set _successOnSilverClasses = _baseClasses ~ ' ' ~ _successClasses ~ ' border-green-400' %}
+{% set _successOnBrandClasses = _baseClasses ~ ' ' ~ _successClasses ~ ' border-transparent' %}
+
+{% set _errorClasses = 'bg-red-50 text-red-700' %}
+{% set _errorOnWhiteClasses = _baseClasses ~ ' ' ~ _errorClasses ~ ' border-red-200' %}
+{% set _errorOnBrandClasses = _baseClasses ~ ' ' ~ _errorClasses ~ ' border-transparent' %}
+
+{# ======================================================================= #}
+
+{% set classes = 'onBrand' in variants ? _regularOnBrandClasses : _regularOnWhiteClasses %}
+
+{% if 'error' in variants %}
+	{% set classes = 'onBrand' in variants ? _errorOnBrandClasses : _errorOnWhiteClasses %}
+{% endif %}
+
+{% if 'success' in variants %}
+	{% set classes = 'onBrand' in variants ? _successOnBrandClasses : _successOnWhiteClasses %}
+	{# reset again if on silver... #}
+	{% set classes = 'onSilver' in variants ? _successOnSilverClasses : classes %}
+{% endif %}
+
+{# ======================================================================= #}
+
+<div class="{{ classes }}">
+	{{ block('content') }}
+</div>

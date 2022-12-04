@@ -1,0 +1,10 @@
+{% embed '_partials/container.twig' with {
+	elementID: 'section-' ~ loop.index,
+	variants: 'squeeze'
+}%}
+	{% block content %}
+		<div class="{{ block.textAlign == 'centre' ? 'text-center' }}">
+			{{ block.body ?? null }}
+		</div>
+	{% endblock %}
+{% endembed %}

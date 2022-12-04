@@ -1,0 +1,20 @@
+{# subject: New submission from {{ form.name }} #}
+{# fromEmail: {{ craft.app.systemSettings.getSettings('email').fromEmail }} #}
+{# fromName: {{ craft.app.systemSettings.getSettings('email').fromName }} #}
+{# replyToEmail: {{ craft.app.systemSettings.getSettings('email').fromEmail }} #}
+{# cc: #}
+{# bcc: #}
+{# includeAttachments: true #}
+{# presetAssets: #}
+{# description: New submission from {{ form.name }} #}
+
+{% extends 'emails/_emailLayout.twig' %}
+
+{% block content %}
+	<p>Submitted on: {{ dateCreated|date('l, F j, Y \\a\\t g:ia') }}</p>
+	<ul>
+		{% for field in allFields %}
+			<li>{{ field.label }}: {{ field.valueAsString }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

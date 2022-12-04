@@ -1,0 +1,19 @@
+columnSuffix: xhnfqage
+contentColumnType: text
+fieldGroup: 3751e361-4cf5-4026-9a43-f01800af29ac # Widgets
+handle: notificationRecipients
+instructions: 'Separate multiple email addresses with commas'
+name: 'Notification recipients'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

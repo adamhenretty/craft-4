@@ -1,0 +1,67 @@
+fieldLayouts:
+  881ec5a3-c85b-4b3b-8bb1-451f39cd567e:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 4b880f39-0760-4837-aa20-008d717244a6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 2bb103e7-f495-40cf-9b2e-f90b979cce07 # Question
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b65d1f8c-f344-418d-9846-801493bdcdff
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 7d4c5a59-dee3-4cc5-9113-4353bbfcbc88 # Answer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d6a2a2fe-a617-4bc7-ad1c-5338e2cd364e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 4baf2396-2ab1-4589-b8de-1f51b59dd563
+        userCondition: null
+handle: default
+hasTitleField: true
+name: Default
+section: 505b38bf-8335-4f08-8031-39bc946af4ab # FAQs
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

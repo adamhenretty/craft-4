@@ -1,0 +1,49 @@
+{# ======================================
+FINAL FALLBACK for generic pages like /terms /privacy etc,
+but also provides base skeleton to inherit from for other entries
+========================================= #}
+
+{% extends '_layout' %}
+
+{# =============================================================================== #}
+
+{% set title = entry.titleTag ? entry.titleTag : entry.title %}
+{% set metaDesc = entry.metaDesc ?? null %}
+{% set noIndex = entry.noIndex ?? null %}
+
+{% set ogTitle = entry.ogTitle ?? null %}
+{% set ogDesc =  entry.ogDesc ?? null %}
+{% set ogImg = entry.ogImage.exists() ? entry.ogImage.one() : null %}
+{% set ogType = entry.ogType ?? null %}
+{% set twitterCreator = entry.twitterCreator ?? null %}
+{% set twitterCard = entry.twitterCard ?? null %}
+
+{# =============================================================================== #}
+
+{% block content %}
+	<article>
+		{# ==================================
+		Banner
+		===================================== #}
+
+		{% include '_partials/banner.twig' %}
+
+		{# ==================================
+		Bodybuilder
+		===================================== #}
+		
+		{% set blocks = blocks ?? entry.bodyBuilder.with([
+			['split:img', {withTransforms: [transforms.split50]}],
+			['images:images', {withTransforms: [
+				transforms.galleryImg,
+				transforms.galleryThumb
+			]}],
+			'video:video',
+			'widget:widget'
+		]).all() %}
+
+		{% if blocks|length %}
+			{% include '_partials/bodyBuilder.twig' with { blocks:blocks } %}
+		{% endif %}
+	</article>
+{% endblock %}

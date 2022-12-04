@@ -1,0 +1,10 @@
+columnSuffix: bgfxxjax
+contentColumnType: integer
+fieldGroup: 3751e361-4cf5-4026-9a43-f01800af29ac # Widgets
+handle: form
+instructions: null
+name: 'Form select'
+searchable: false
+translationKeyFormat: null
+translationMethod: none
+type: Solspace\Freeform\FieldTypes\FormFieldType

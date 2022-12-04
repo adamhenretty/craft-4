@@ -1,0 +1,19 @@
+columnSuffix: xkorluno
+contentColumnType: text
+fieldGroup: 3751e361-4cf5-4026-9a43-f01800af29ac # Widgets
+handle: returnUrl
+instructions: 'Redirect the form to a thank you page after a successful submission'
+name: 'Thank you page url'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

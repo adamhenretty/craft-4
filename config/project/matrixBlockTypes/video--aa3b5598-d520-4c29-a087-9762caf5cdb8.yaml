@@ -1,0 +1,108 @@
+field: 661f0cbe-8667-4984-aea8-55239d2f6e8e # Body builder
+fieldLayouts:
+  4eea96ff-08bd-4186-88cc-c574af478601:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 15e51119-6b95-4040-9d20-8a0fc06e7e4f # Video
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f7f11180-e823-4248-b571-50499f045142
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: a7c5d5f5-629e-4c67-8561-e4a13c2cddaa # Section background colour
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bffdf2de-e609-4bc3-98aa-41137facb517
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f0d3b2f5-e497-4e92-9340-f9fc5a22b73a
+        userCondition: null
+fields:
+  15e51119-6b95-4040-9d20-8a0fc06e7e4f: # Video
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: video
+    instructions: null
+    name: Video
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      localizeRelations: false
+      maxRelations: 1
+      minRelations: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Entry
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\entries\EntryCondition
+      selectionLabel: null
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:5fa00c47-4ca4-4b3a-8085-bb89956938eb' # Videos
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  a7c5d5f5-629e-4c67-8561-e4a13c2cddaa: # Section background colour
+    columnSuffix: odxomqpu
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionBG
+    instructions: null
+    name: 'Section background colour'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - White
+            -
+              - value
+              - white
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Silver
+            -
+              - value
+              - silver
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: video
+name: Video
+sortOrder: 4

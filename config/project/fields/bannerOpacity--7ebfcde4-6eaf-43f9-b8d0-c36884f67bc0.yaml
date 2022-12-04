@@ -1,0 +1,56 @@
+columnSuffix: ztyeopgp
+contentColumnType: string
+fieldGroup: e525d53f-7298-43c3-8dca-edf8cfd1f8b2 # Common
+handle: bannerOpacity
+instructions: null
+name: 'Banner overlay opacity'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 0%
+        -
+          - value
+          - '0'
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 25%
+        -
+          - value
+          - '25'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 50%
+        -
+          - value
+          - '50'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 75%
+        -
+          - value
+          - '75'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

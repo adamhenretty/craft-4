@@ -1,0 +1,9 @@
+{# ======================================
+HOME.
+========================================= #}
+
+{% set entry = entry is defined ? entry : craft.entries.section('home').one() %}
+
+{% include '_entries/default.twig' %}
+
+

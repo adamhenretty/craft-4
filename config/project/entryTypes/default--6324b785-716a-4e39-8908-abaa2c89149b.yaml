@@ -1,0 +1,79 @@
+fieldLayouts:
+  502c0144-5781-4c7c-9faa-bd597d466a34:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 45f0b3af-a831-4ff9-b259-932ffaafb7f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 42c541fc-75d1-4e6c-884c-75af2a79490c # YouTube video ID
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a1d52dc4-dc43-453c-9879-d5127ae8386d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: adf503c9-6a45-44ab-a6c8-a5426f5635bb # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5cd9bd98-5e32-44cc-aafd-80f23b11ea9f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 33ad3504-17bf-43e1-a94b-eea6a698c8b6 # Body
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b4932f2b-e2c6-478c-80d2-3ccef803af9d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 221ab230-88a9-4c96-8e0b-ff29d93e454c
+        userCondition: null
+handle: default
+hasTitleField: true
+name: Default
+section: 5fa00c47-4ca4-4b3a-8085-bb89956938eb # Videos
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

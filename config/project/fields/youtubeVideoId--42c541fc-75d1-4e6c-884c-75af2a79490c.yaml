@@ -1,0 +1,19 @@
+columnSuffix: amutxwtz
+contentColumnType: text
+fieldGroup: e525d53f-7298-43c3-8dca-edf8cfd1f8b2 # Common
+handle: youtubeVideoId
+instructions: 'Please input just the video ID, not a whole embed code. You can find the ID in the URL. This allows us to properly lazy-load the video and its related assets, speeding up loading times.'
+name: 'YouTube video ID'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

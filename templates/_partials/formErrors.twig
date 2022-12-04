@@ -1,0 +1,46 @@
+{# ======================================
+SERVER SIDE VALIDATION ERROR MESSAGES. Note, form.errors
+are not the same as field-level errors! Let's
+merge them all together here...
+========================================= #}
+
+{% if form.hasErrors %}
+	{% set allErrors = [] %}
+
+	{# these are form-level errors e.g. captcha fails/honeypot fails #}
+	{% if form.errors|length %}
+		{% for error in form.errors %}
+			{% set allErrors = allErrors|push(error) %}
+		{% endfor %}
+	{% endif %}
+
+	{# these are field-level errors #}
+	{% for row in form %}
+		{% for field in row %}
+			{% if field.errors|length %}
+				{% for error in field.errors %}
+					{% set allErrors = allErrors|push(field.label ~ ': ' ~ error|lcfirst) %}
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+
+	{# output... #}
+	{% if allErrors|length %}
+		{% embed '_partials/message.twig' with {
+			variants: ['error', block.sectionBG == 'brand' ? 'onBrand' ]
+		} %}
+			{% block content %}
+				<h3 class="text-red-700">Sorry, there was a problem</h3>
+				<p class="mt-4 fl:text-sm">
+					{{ form.errorMessage ?? 'Please review the form and try submitting again.' }}
+				</p>
+				<ul class="mt-4 fl:text-sm">
+					{% for error in allErrors %}
+						<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			{% endblock %}
+		{% endembed %}
+	{% endif %}
+{% endif %}

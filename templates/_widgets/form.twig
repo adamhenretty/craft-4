@@ -1,0 +1,49 @@
+{% embed '_partials/container.twig' with {
+    variants:['']
+} %}
+    {% block content %}
+
+        <div class="{{ entry.body|length ? 'mt-8' }}">
+			<div class="flex flex-wrap">
+				<article class="w-full md:w-1/2 sm:pr-8 md:pr-20">
+				
+					{# ==================================
+					Show the body copy if any,otherwise default to
+					showing contact details from the globals (if any).
+					===================================== #}
+
+					{% if entry.body|length %}
+						{{ entry.body }}
+					{% else %}
+						{% if contactDetails.emailAddress %}
+							<p>Email: <a href="mailto:{{ contactDetails.emailAddress }}">{{ contactDetails.emailAddress }}</a></p>
+						{% endif %}
+
+						{% if contactDetails.phoneNumber %}
+							<p>Telephone: <a href="tel:{{ contactDetails.phoneNumber }}">{{ contactDetails.phoneNumber }}</a></p>
+						{% endif %}
+
+						{% if contactDetails.address|length %}
+							<address>
+								{{ contactDetails.address|nl2br }}
+							</address>
+						{% endif %}
+
+					{% endif %}
+				</article>
+				<div class="w-full md:w-1/2">
+					{% include '_partials/form.twig' with {
+						form: entry.form,
+						dynamicNotification: {
+							recipients: entry.notificationRecipients|length ? entry.notificationRecipients|split(','),
+							template: 'genericNotification.twig'
+						},
+						thanksMsg: entry.inlineThankYouMessage ?? null,
+						returnUrl: entry.returnUrl ?? null
+					} %}
+				</div>
+			</div>
+		</div>
+
+    {% endblock %}
+{% endembed %}

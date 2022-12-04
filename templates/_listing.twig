@@ -1,0 +1,15 @@
+{# ==================================
+ROUTING TEMPLATE for listings.
+
+If we are routing here using a CP-defined
+Entry URI Format (e.g. /blog), then Craft
+will automatically give us the `entry` variable.
+Otherwise if we're routing here via a filtered
+listing (e.g. /blog/category/cat-slug),
+we'll need to fetch the listing entry ourselves.
+===================================== #}
+
+{% set entry = entry is defined ? entry : route_listing is defined ? craft.entries.section('listings').slug(route_listing).one() %}
+{% set listingType = category is defined or route_cat is defined ? 'elementsByCategory' : 'elements' %}
+
+{% include '_listings/handlers/' ~ listingType %}

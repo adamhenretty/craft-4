@@ -1,0 +1,27 @@
+columnSuffix: rdtlrbax
+contentColumnType: text
+fieldGroup: 3751e361-4cf5-4026-9a43-f01800af29ac # Widgets
+handle: inlineThankYouMessage
+instructions: null
+name: 'Inline thank you message'
+searchable: false
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: null
+  purifyHtml: true
+  redactorConfig: Simple.json
+  removeEmptyTags: false
+  removeInlineStyles: false
+  removeNbsp: false
+  showHtmlButtonForNonAdmins: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

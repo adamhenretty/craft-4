@@ -1,0 +1,71 @@
+{# ==================================
+BUTTON
+
+Params:
+
+* link (required unless `element` is not an anchor)
+* label (required)
+* element (default to anchor)
+* classes - string or array (extra classes on the button element)
+* attrs - (object) a hash of extra attributes for the button element.
+* variants - string for a single variant option, or array of variant options:
+	- inverted
+	- jumbo
+	- mini
+	- noHairline (kill the subtle white hairline that offsets the main shadow)
+
+Example:
+
+{% include '_partials/button.twig' with { label: block.buttonLabel, link: block.buttonLink, variants: ['jumbo','inverted'] } only %}
+===================================== #}
+
+{% set element = element ?? 'a' %}
+{% set variants = variants ?? [] %}
+{% set classes = classes ?? [] %}
+
+{# if variants was a string, convert to an array so we can use 'in' on it more reliably... #}
+{% set variants = variants is iterable ? variants : [variants] %}
+{% set formId = formId ?? '' %}
+
+{# ==================================
+COLOUR
+===================================== #}
+
+{% set _buttonColor = 'inverted' in variants ?
+	'bg-dark hover:text-white text-white ring-offset-dark' :
+	'bg-brand hover:text-white text-white ring-offset-brand'
+%}
+
+{# ==================================
+SIZE
+===================================== #}
+
+{% set _buttonSize = 'px-4 py-2 md:py-3 md:px-8 w-full fl:text-base' %}
+{% if 'jumbo' in variants %}
+	{% set _buttonSize = 'px-8 py-3 md:py-4 md:px-10 w-full fl:text-md' %}
+{% endif %}
+{% if 'mini' in variants %}
+	{% set _buttonSize = 'px-4 py-2 fl:text-sm' %}
+{% endif %}
+
+{# ==================================
+STITCH EVERYTHING TOGETHER...
+===================================== #}
+
+{% set classes = 'leading-none flex items-center justify-center text-center font-bold font-display transition relative rounded-full active:top-px hover:ring-1 focus:ring-1 ring-inset ring-offset-2 ring-white ring-opacity-30 ' ~ _buttonColor ~ ' ' ~ _buttonSize ~ ' ' ~ classes|join(' ') %}
+
+{# ======================================================================= #}
+
+<div class="leading-none inline-block">
+	<div class="leading-none inline-block">
+		<{{ element }}
+			class="{{ classes }}"
+			{% if element == 'a' %}href="{{ link }}"{% endif %}
+			{{ attrs is defined ? attr(attrs) }}
+		>
+
+			<span>{{ label }}</span>
+
+		</{{ element }}>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+{% extends "_layout" %}
+
+{# =============================================================================== #}
+
+{% set title = "404 Error" %}
+
+{# =============================================================================== #}
+
+{% block content %}
+	{% embed '_partials/container.twig' %}
+		{% block content %}
+			<h1>Page not found</h1>
+		{% endblock %}
+	{% endembed %}
+{% endblock %}

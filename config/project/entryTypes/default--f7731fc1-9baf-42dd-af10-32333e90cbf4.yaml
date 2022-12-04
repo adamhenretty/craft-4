@@ -1,0 +1,223 @@
+fieldLayouts:
+  a6a48832-117a-4b6e-aa82-bc32db23f672:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: cf980d8f-e32e-4f93-bf29-fd1f21bd2bac
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 661f0cbe-8667-4984-aea8-55239d2f6e8e # Body builder
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fa1f0554-30a4-4165-b22a-b41d8cc69eb7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 89190a43-05ac-4cf2-865e-ade7882b759f
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: f39fc309-38af-4102-a273-2f39c074cd50 # Banner title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eeda01f5-6839-4d50-a8ff-00556a850bc5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 4581a2fb-8ab7-44a1-a4ab-d85dfed32337 # Banner image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: db57eb07-1e67-42ce-8c2f-a81a789cad0f
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: fb2c7357-1d97-45f9-a8f4-c214dcea3154 # Banner size
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ebf128dd-d452-4139-a694-9ad84bff49c0
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 7ebfcde4-6eaf-43f9-b8d0-c36884f67bc0 # Banner overlay opacity
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1526759-f910-4fb7-8885-40ebb0d0a63e
+            userCondition: null
+            warning: null
+            width: 25
+        name: Banner
+        uid: af5741b7-9ed5-42b0-b7c7-dccd9a5d783f
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 3a55636c-f114-4ca1-84a3-f568f17a51b0 # Browser title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a02b021d-f995-450a-a175-7e040fc43a10
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 55409bef-f02b-43a6-87ba-6645890db160 # Meta description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b46f9e25-11b2-4ffe-b7ad-525440cc71ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 5beb9697-853c-400d-825c-5dc6e8f9707e # No index
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 01648c80-0e63-4ed1-975f-f745642086a1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 49e4be6b-31e8-4637-970f-72b746d0dd07 # OG title override
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f84db75a-cf5c-45e1-bd90-81d1965d6ff1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ac776189-eb45-4663-a943-42e6263a2928 # OG description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e76975ef-74e2-4249-aebf-606195ded4f0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 93911dec-d597-4048-be70-3822341db5c8 # OG image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 444e1073-2a07-4a62-ac4a-29024fffc718
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 75347aed-7cd3-4a88-a475-d94c64fff91b # OG type
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 736e2dac-ebaf-4faf-b321-ef7aa5af8d39
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 9ba80f98-3521-4d95-8103-833cc54f9074 # Twitter card
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 54156280-a64f-4c5f-9688-169e46631aee
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 096e0833-599f-412d-96d1-e509f94c841e # Twitter creator
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8653f6d1-726f-44c9-8ff9-40ab7c004621
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 45961625-8682-4af0-90fa-e2044013213e
+        userCondition: null
+handle: default
+hasTitleField: true
+name: Default
+section: 52703ec7-c7f2-4493-b57d-a6193c1942e8 # Pages
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

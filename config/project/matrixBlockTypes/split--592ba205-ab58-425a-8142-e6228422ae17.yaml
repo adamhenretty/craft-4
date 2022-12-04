@@ -1,0 +1,373 @@
+field: 661f0cbe-8667-4984-aea8-55239d2f6e8e # Body builder
+fieldLayouts:
+  7dc8f434-ab6d-4d8e-80d5-36ebc7a63d6e:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: d7fb4fb2-6296-4cb8-9dde-126519c3715b # Section heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a23b721f-f08c-4ae1-a840-866790eee23f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 26827705-a0c2-430f-89e7-8ec732440da2 # Section background colour
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3c539470-b5e1-4e5c-934a-9e323c9d50ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 2cb7f2a3-78fb-4dc5-9545-aaff10870782 # Body
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84cb0924-4d6e-45c3-aae6-d1479340d536
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a3410a-5c32-4a89-9bb9-42f46efe2ca6 # Button link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6fe9ef5b-2125-485b-94f0-8357c7953a46
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 13fe3115-fbba-47a5-8b57-8a1b75d0ff83 # Button label
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bfe53404-b9dc-4243-8a3d-90684b319f45
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: f7fedf7d-f898-472b-a955-8e2d7f040954 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3972fbf-0d76-4a3c-a969-2c672cc5bb60
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: c9bf4b48-9d48-447d-af8c-2e886fbef69a # Image style
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 253f65b2-85b0-4f46-b852-1cc64e151331
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 1bdeb9aa-67d7-4844-bfb2-f5720639b516 # Split options
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 11dfba9b-02bf-4afb-b60f-de60190d3ac1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 89e7a468-9415-4640-89f3-2cbe6b4baad0
+        userCondition: null
+fields:
+  1bdeb9aa-67d7-4844-bfb2-f5720639b516: # Split options
+    columnSuffix: kknofhgd
+    contentColumnType: string
+    fieldGroup: null
+    handle: splitOptions
+    instructions: null
+    name: 'Split options'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - ' Text 60% width / Image 40% width'
+            -
+              - value
+              - 60/40
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Text 50% width / Image 50% width'
+            -
+              - value
+              - 50/50
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\RadioButtons
+  2cb7f2a3-78fb-4dc5-9545-aaff10870782: # Body
+    columnSuffix: icbogpct
+    contentColumnType: text
+    fieldGroup: null
+    handle: body
+    instructions: null
+    name: Body
+    searchable: false
+    settings:
+      availableTransforms: ''
+      availableVolumes: '*'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: null
+      purifyHtml: true
+      redactorConfig: Simple.json
+      removeEmptyTags: false
+      removeInlineStyles: false
+      removeNbsp: false
+      showHtmlButtonForNonAdmins: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  13fe3115-fbba-47a5-8b57-8a1b75d0ff83: # Button label
+    columnSuffix: otrsbuda
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonLabel
+    instructions: null
+    name: 'Button label'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  26827705-a0c2-430f-89e7-8ec732440da2: # Section background colour
+    columnSuffix: baaawkod
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionBG
+    instructions: null
+    name: 'Section background colour'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - White
+            -
+              - value
+              - white
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Silver
+            -
+              - value
+              - silver
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  c9bf4b48-9d48-447d-af8c-2e886fbef69a: # Image style
+    columnSuffix: jkvqagpd
+    contentColumnType: string
+    fieldGroup: null
+    handle: imgOptions
+    instructions: 'Pick an option depending on the amount of text you are using and the image type that you are using.'
+    name: 'Image style'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Contained inside the site''s layout grid'
+            -
+              - value
+              - constrained
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Contained, with height matched to the text'
+            -
+              - value
+              - constrainedFullHeight
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full width with no image masking'
+            -
+              - value
+              - fullWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full width with image masking'
+            -
+              - value
+              - fullWidthFullHeight
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\RadioButtons
+  d7fb4fb2-6296-4cb8-9dde-126519c3715b: # Section heading
+    columnSuffix: popyonux
+    contentColumnType: text
+    fieldGroup: null
+    handle: sectionHeading
+    instructions: null
+    name: 'Section heading'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e0a3410a-5c32-4a89-9bb9-42f46efe2ca6: # Button link
+    columnSuffix: vmzvdupy
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonLink
+    instructions: null
+    name: 'Button link'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f7fedf7d-f898-472b-a955-8e2d7f040954: # Image
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: img
+    instructions: null
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:b51c3bf7-bd4c-46f9-92d5-c548637e190a' # Images
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictFiles: false
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:b51c3bf7-bd4c-46f9-92d5-c548637e190a' # Images
+      restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
+      selectionLabel: null
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      source: null
+      sources:
+        - 'volume:b51c3bf7-bd4c-46f9-92d5-c548637e190a' # Images
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: split
+name: 'Text/Image split'
+sortOrder: 2

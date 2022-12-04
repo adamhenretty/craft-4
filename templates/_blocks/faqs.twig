@@ -1,0 +1,65 @@
+{% set faqs = block.entries ?? null %}
+{% if faqs|length %}
+    {% embed '_partials/container.twig' with {
+        elementID: 'section-' ~ loop.index,
+        variants: [block.body|length ? '' : 'uberSqueeze'],
+        sectionBG: block.sectionBG
+    } %}
+        {% block content %}
+
+            {% set questions %}
+                <ul class="list-reset {{ block.body|length ? 'mt-0' : 'spacing' }}">
+                    {% for faq in faqs.all() %}
+                        <li class="{{ not loop.first ? '!mt-4' }}">
+                            <article class="border border-brand rounded-sm">
+                                <div role="button"
+                                    tabindex="0"
+                                    class="button-reset group w-full flex items-center justify-between realtive p-4 transition-all hover:bg-brand hover:text-white js-toggle"
+                                    aria-controls="js-accordion-{{ loop.index }}-{{ block.id }}"
+                                    data-active="is-active"
+                                    data-active-target-id="js-accordion-{{ loop.index }}-{{ block.id }}"
+                                    data-active-target="is-active"
+                                    aria-expanded="false"
+                                >
+                                    <div class="font-bold">
+                                        {{ faq.question }}
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 accordion-off">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 accordion-on hidden">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </div>
+                                <div id="js-accordion-{{ loop.index }}-{{ block.id }}" class="no-js-show hidden" aria-hidden="true">
+                                    <div class="p-4">{{ faq.answer }}</div>
+                                </div>
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endset %}
+
+        {# =============================================================================== #}
+
+            <div class="w-full {{ block.body|length ? 'flex flex-wrap' }}">
+                {% if block.body|length %}
+                    <div class="w-full md:w-2/5">
+                        {% if block.sectionHeading|length %}
+                            <h2>{{ block.sectionHeading }}</h2>
+                        {% endif %}
+                        {{ block.body }}
+                    </div>
+                    <div class="w-full mt-8 md:mt-0 md:w-3/5 md:pl-8">
+                        {{ questions }}
+                    </div>
+                {% else %}
+                    {% if block.sectionHeading|length %}
+                        <h2 class="text-center">{{ block.sectionHeading }}</h2>
+                    {% endif %}
+                        {{ questions }}
+                {% endif %}
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endif %}

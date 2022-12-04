@@ -1,0 +1,243 @@
+{# ==================================
+Params:
+
+form (required)
+thanksMsg:  override any thank-you message set against the form
+returnUrl: override any return URL set against the form
+
+===================================== #}
+
+{% set specialFields = ['submit', 'html'] %}
+{% set baseLabelClasses = '' %}
+{% set baseFieldClasses = block.sectionBG == 'brand' ? 'border-transparent focus:ring ring-dark' %}
+{% set errorClass = 'list-reset uppercase text-xs font-bold absolute bg-white !p-1 left-5 -bottom-2.5 text-red-500' %}
+{% set instructionsClass = 'text-sm mt-2 default-links' %}
+
+{# the inline variant (form field side-by-side with its submit button a la newsletter signup) needs some inset focus styles so
+that the focus ring doesn't look weird by going outside the button's boundaries #}
+
+{% set baseFieldClasses = baseFieldClasses ~ ' ring-inset focus:border-brand hover:focus:!border-brand focus:ring ring-brand' %}
+	
+{# ======================================
+THANK YOU MESSAGE
+========================================= #}
+
+{% if craft.app.request.param('submitted') is defined and craft.app.request.param('submitted') %}
+	<div class="mt-4">
+		{% embed '_partials/message.twig' with {
+			variants: ['success', block.sectionBG == 'brand' ? 'onBrand' ],
+		} %}
+			{% block content %}
+				<h3 class="text-green-700">Success</h3>
+				<div class="mt-4 fl:text-sm">
+					{# form.successMessage is set against the form itself in Freeform, thanksMsg is set against a block or entry. #}
+					{% if thanksMsg %}
+						{{ thanksMsg }}
+					{% elseif form.successMessage %}
+						{{ form.successMessage|md }}
+					{% else %}
+						<p>Thank you for your enquiry, we will be in touch shortly.</p>
+					{% endif %}
+				</div>
+			{% endblock %}
+		{% endembed %}
+	</div>
+{% endif %}
+
+{# ======================================
+STANDARD FORM
+========================================= #}
+
+{% set passedInReturnUrl = returnUrl ?? null %}
+{% set freeformReturnUrl = form.returnUrl|length ? form.returnUrl|trim : null %}
+{% set defaultReturnUrl = craft.app.request.absoluteUrl ~ '?submitted=1' %}
+{% set returnUrl = passedInReturnUrl ?? freeformReturnUrl ?? defaultReturnUrl %}
+
+{{ form.renderTag({
+	id:'form-' ~ block.id,
+	class: 'js-freeformForm js-trackOnSubmit',
+	fieldIdPrefix: 'block-' ~ block.id ~ '-',
+	returnUrl: returnUrl,
+	formAttributes: {
+		'data-tracking-label': form.name
+	}
+}) }}
+
+	{# ======================================
+	FORM-LEVEL ERROR MESSAGES
+	========================================= #}
+
+	{% include '_partials/formErrors.twig' %}
+
+	{# ======================================
+	QUESTIONS LOOP
+	========================================= #}
+
+	{% for row in form %}
+		<div class="mt-4">
+			{% set columnLength = row|length %}
+			<div class="flex flex-wrap -mx-2 -mt-2 md:-my-3 md:-mx-3">
+				{% for field in row %}
+
+					{% set fieldClass = baseFieldClasses %}
+					{% set labelClass = baseLabelClasses %}
+
+					{# override or append to the base classes defined in form.twig per field type #}
+					{% switch field.type %}
+						{% case 'number' %}
+							{% set fieldClass = fieldClass ~ ' w-24 text-center' %}
+						{% case 'textarea' %}
+							{% set fieldClass = fieldClass ~ ' h-40' %}
+					{% endswitch %}
+
+					{# append error/required styles #}
+					{% if block.sectionBG == 'brand' %}
+						{% set fieldClass = fieldClass ~ (field.hasErrors ? ' border-red-500') %}
+						{% set labelClass = labelClass ~ (field.required ? ' required' : '') %}
+					{% else %}
+						{% set fieldClass = fieldClass ~ (field.hasErrors ? ' border-red-300') %}
+						{% set labelClass = labelClass ~ (field.required ? ' required' : '') %}
+					{% endif %}
+
+					{# set field size based on freeform editor cols #}
+					{% switch columnLength %}
+						{% case '2' %}
+							{% set inputSize = 'w-full md:w-1/2' %}
+						{% case '3' %}
+							{% set inputSize = 'w-full md:w-1/3' %}
+						{% case '4' %}
+							{% set inputSize = 'w-full md:w-1/4' %}
+						{% case '5' %}
+							{% set inputSize = 'w-full md:w-1/5' %}
+						{% default %}
+							{% set inputSize = 'w-full' %}
+					{% endswitch %}
+
+					<div class="relative my-2 px-2 md:my-3 md:px-3 {{ inputSize }}">
+
+						{% if field.type not in specialFields %}
+							{% switch field.type %}
+
+								{# ======================================================================= #}
+
+								{% case 'radio_group' or 'checkbox_group' %}
+
+									{{ field.renderLabel({ labelClass: labelClass}) }}
+									{{ field.renderInstructions() }}
+
+									<ul class="list-reset-for-grids mt-4 {{ field.oneLine ? 'flex space-x-4' }} {{ field.hasErrors ? 'border border-red-300 p-4' }}">
+										{% for index, option in field.options %}
+											<li class="custom-selectable relative flex items-center {{ field.oneLine ? '' : 'mt-2' }}">
+												<label class="text-base mt-0 flex w-full" for="{{ field.idAttribute }}-{{ index }}">
+													<input type="{{ field.type == 'radio_group' ? 'radio' : 'checkbox' }}"
+													       name="{{ field.handle }}{{ field.type == 'checkbox_group' ? '[]' }}"
+													       value="{{ option.value }}"
+													       id="{{ field.idAttribute }}-{{ index }}"
+													       class="sr-only"
+															{{ option.checked ? 'checked' : '' }}
+													/>
+													{% include '_partials/tickableElement.twig' with {
+														radio: field.type == 'radio_group' ? true
+													} %}
+													{{ option.label|t|raw }}
+												</label>
+											</li>
+										{% endfor %}
+									</ul>
+
+									{{ field.renderErrors() }}
+
+								{# ======================================================================= #}
+
+								{% case 'checkbox' %}
+									<div class="custom-selectable relative flex items-center">
+										<label class="text-base mt-0 flex w-full" for="{{ field.idAttribute }}-{{ loop.index }}">
+											<input type="checkbox"
+											       name="{{ field.handle }}"
+											       value="1"
+											       id="{{ field.idAttribute }}-{{ loop.index }}"
+											       class="sr-only"
+													{{ field.checked ? 'checked' : '' }}
+											/>
+											{% include '_partials/tickableElement.twig' %}
+											{{ field.label|t|raw }}
+										</label>
+										{{ field.renderErrors() }}
+										{{ field.renderInstructions() }}
+									</div>
+
+								{# ======================================================================= #}
+
+								{% case 'select' %}
+
+									{{ field.renderLabel({ labelClass: labelClass }) }}
+									{{ field.renderInstructions() }}
+
+									<div class="relative">
+										<span class="absolute mr-4 border-gray-500 border-b-2 border-l-2 right-0 w-2 h-2 pointer-events-none top-1/2 transform -rotate-45 -translate-y-1/2"></span>
+										{{ field.renderInput({
+											class: fieldClass,
+											errorClass: errorClass,
+										}) }}
+									</div>
+									{{ field.renderErrors() }}
+
+								{# ======================================================================= #}
+
+								{% case 'file' %}
+									<!-- Not supported, please contact us -->
+
+								{# ======================================================================= #}
+
+								{% case 'mailing_list' %}
+									<!-- Not supported, please contact us -->
+
+								{# ======================================================================= #}
+
+								{% case 'dynamic_recipients' %}
+									<!-- Not supported, please contact us -->
+
+								{# ======================================================================= #}
+
+								{% case 'signature' or 'rating' or 'opinion_scale' or 'table' %}
+									<!-- Not supported, please contact us -->
+
+								{# ======================================================================= #}
+
+								{% default %}
+									{{ field.render({
+										class: fieldClass,
+										labelClass: labelClass,
+										instructionsClass: instructionsClass,
+										errorClass: errorClass,
+									}) }}
+							{% endswitch %}
+						{% endif %}
+
+						{# ==================================
+						CUSTOM HTML
+						===================================== #}
+
+						{% if field.type == 'html' %}
+							{{ field|raw|md }}
+						{% endif %}
+
+						{# ==================================
+						SUBMIT BUTTON
+						===================================== #}
+
+						{% if field.type == 'submit' %}
+							<div class="mt-4">
+								{% include '_partials/button.twig' with {
+									element: 'button',
+									label: 'Submit',
+									variants: block.sectionBG == 'brand' ? ['inverted','noHairline', 'jumbo'] : 'jumbo'
+								} only %}
+							</div>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+{{ form.renderClosingTag }}

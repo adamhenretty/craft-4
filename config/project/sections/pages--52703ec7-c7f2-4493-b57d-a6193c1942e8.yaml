@@ -1,0 +1,15 @@
+defaultPlacement: end
+enableVersioning: true
+handle: pages
+name: Pages
+propagationMethod: all
+siteSettings:
+  27fd5441-8230-4f21-8d4c-ae215e7076df: # Comedy with Romesh
+    enabledByDefault: true
+    hasUrls: true
+    template: _entry
+    uriFormat: '{slug}'
+structure:
+  maxLevels: 1
+  uid: 307899db-ec3d-4fa1-bfab-5dfaafd931f5
+type: structure

@@ -1,0 +1,9 @@
+{% set transforms = {
+	ogImg: { mode: 'crop', width: 1200 },
+	heroBanner: { width: 1800 },
+	split50: { width: 1200 },
+	galleryImg: { mode: 'crop', width: 1300, height: 825 },
+	galleryThumb: { mode: 'crop', width: 300, height: 180 }
+} %}
+
+{{ block('ajaxContent') }}

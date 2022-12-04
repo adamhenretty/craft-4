@@ -1,0 +1,103 @@
+fieldLayouts:
+  128e53b2-3e9e-458e-887f-293b0bb5ea4f:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 2ceb2562-bf6e-48aa-93d1-cc5e7a39d98c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 33ad3504-17bf-43e1-a94b-eea6a698c8b6 # Body
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba0bb54d-7b5b-418a-9a9c-1161f20dbf26
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 4edf87c7-e201-4849-a672-95a175e3defa # Form select
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8ab655c3-fba1-4472-99a2-cc764993efc5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 63c45d1f-c3f7-4c75-9731-7acdfcd1750f # Inline thank you message
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0c6702af-c0d3-49aa-85a0-5756ba4c436b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 5423f870-5eef-4089-acc3-4a4ec35d8068 # Notification recipients
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 66b4c997-e3c2-4a7a-8531-12033694442e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: af1123bd-6d8b-4998-8f80-f9c90c83d965 # Thank you page url
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7b71f0b9-13d2-4153-9b24-33c4fd7c7d20
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5fd8630c-8c54-4b14-ad68-eb081ab32071
+        userCondition: null
+handle: form
+hasTitleField: true
+name: Form
+section: 115249ea-741c-48f9-8ba6-72e0c5b2f8ca # Widgets
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

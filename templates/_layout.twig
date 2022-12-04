@@ -1,0 +1,251 @@
+{% set transforms = {
+	ogImg: { mode: 'crop', width: 1200 },
+	heroBanner: { width: 1800 },
+	split50: { width: 1200 },
+	galleryImg: { mode: 'crop', width: 1300, height: 825 },
+	galleryThumb: { mode: 'crop', width: 300, height: 180 }
+} %}
+
+{# =============================================================================== #}
+
+{% set css = {
+	navLink: 'uppercase group inline-flex items-center text-center font-semibold tracking-widest lg:leading-6 hover:text-gray-900 focus:text-gray-900 transition ease-in-out duration-150 focus:outline-none',
+	navLinkOnLight: 'block uppercase text-base font-semibold tracking-widest leading-6',
+} %}
+
+{# =============================================================================== #}
+
+{% minify %}
+<!doctype html>
+<html prefix="og: https://ogp.me/ns#" class="no-js antialiased font-sans text-body scroll-smooth" lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
+	<meta charset="utf-8">
+	<title>{{ title is defined ? title ~ ' | ' ~ siteName : siteName }}</title>
+	<meta name="description" content="{{ metaDesc is defined ? metaDesc|striptags : null }}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ siteUrl|trim('/', 'right') }}{{ mix('css/main.css') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% if noIndex is defined and noIndex == 1 or craft.app.config.env != 'live' %}<meta name="robots" content="noindex, nofollow">{% endif %}
+	
+	{# ======================================
+	SOCIAL META. Use OG fallbacks to minimise complexity here.
+
+	{% set title = entry.titleTag ? entry.titleTag : entry.title %}
+	{% set metaDesc = entry.metaDesc ? entry.metaDesc : entry.summary ? entry.summary : null %}
+	{% set noIndex = entry.noIndex ?? null %}
+
+	{% set ogTitle = entry.ogTitle ?? null %}
+	{% set ogDesc =  entry.ogDesc ?? null %}
+	{% set ogImg = entry.ogImage.one ? entry.ogImage.one : entry.productImage.one ? entry.productImage.one : null %}
+	{% set ogType = entry.ogType ?? null %}
+	{% set twitterCreator = entry.twitterCreator ?? null %}
+	{% set twitterCard = entry.twitterCard ?? null %}
+	========================================= #}
+
+	{% set ogTitle = ogTitle is defined and ogTitle ? ogTitle : title is defined and title ? title : siteName %}
+	{% set ogDesc = ogDesc is defined and ogDesc ? ogDesc : metaDesc is defined and metaDesc ? metaDesc : null %}
+
+	{#
+	We prefer to use site-root relative URIs for our asset base URLs, which means
+	we'll need to manually append the siteUrl onto externally referenced images such
+	as the OG image. Craft forces siteUrl to use a trailing slash, so we'll need to
+	trim it here to avoid a double-slash.
+	Also specify OG width and height for better rendering perf:
+	https://developers.facebook.com/docs/sharing/best-practices
+	 #}
+	{% if ogImg is defined and ogImg %}
+		{% set ogImg = siteUrl|trim('/', 'right') ~ ogImg.url(transforms.ogImg[0]) %}
+		{% set ogWidth = ogImg.width() %}
+		{% set ogHeight = ogImg.height() %}
+	{% else %}
+		{% set ogImg = siteUrl ~ 'assets/img/logo-og.png' %}
+		{% set ogWidth = 1200 %}
+		{% set ogHeight = 1200 %}
+	{% endif %}
+
+	{# {% set ogWidth = value %} #}
+
+	<meta name="twitter:card" content="{{ twitterCard ?? 'summary' }}">
+	{% if socialLinks.twitterHandle %}<meta name="twitter:site" content="@{{ socialLinks.twitterHandle }}">{% endif %}
+	{% if twitterCreator is defined and twitterCreator %}<meta name="twitter:creator" content="{{ twitterCreator }}">{% endif %}
+	<meta property="og:title" content="{{ ogTitle }}">
+	<meta property="og:type" content="{{ ogType ?? 'website' }}">
+	<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
+
+	<meta property="og:image" content="{{ ogImg }}">
+	<meta property="og:image:height" content="{{ ogHeight }}">
+	<meta property="og:image:width" content="{{ ogWidth }}">
+	{% if ogDesc %}<meta property="og:description" content="{{ ogDesc|striptags }}">{% endif %}
+	<meta property="og:site_name" content="{{ siteName }}">
+
+	{% if socialLinks.fbAdmins|length %}
+		{% for fbAdmin in socialLinks.fbAdmins %}
+			<meta property="fb:admins" content="{{ fbAdmin.fbAccountNo }}">
+		{% endfor %}
+	{% endif %}
+	
+	{% if not craft.app.request.isPreview and craft.app.config.env == 'live' %}
+		{{ scripts.headScripts|raw }}
+	{% endif %}
+
+	{{ head() }}
+</head>
+
+{# ======================================
+NAVIGATION
+========================================= #}
+
+{% set primaryNav = navigation.primaryNav %}
+{% set footerNav = navigation.footerNav %}
+
+{# =============================================================================== #}
+
+<body class="m-0 {{ bodyClass ?? null }}">
+
+	<div class="js-edit-this" data-thing="{{ entry.id ?? category.id ?? null }}"></div>
+
+	{{ beginBody() }}
+
+	{% if not craft.app.request.isPreview and craft.app.config.env == 'live' %}
+		{{ scripts.bodyStartScripts|raw }}
+	{% endif %}
+
+	<div id="app" class="flex flex-col min-h-screen">
+
+		{# =============================================================================== #}
+
+		{% embed '_partials/container.twig' with {
+			variants: 'superSquash',
+			element:'header',
+			sectionBG: 'white',
+			classes: ['z-30']
+		} %}
+			{% block content %}
+				{# ==================================
+				DESKTOP NAV
+				===================================== #}
+				<nav class="hidden md:flex justify-between items-center relative">
+					<a class="hidden md:block 2xl:flex 2xl:relative 2xl:mr-8 2xl:top-auto" href="/"><img alt="Logo" style="width:90px" src="/assets/img/no-image.svg"></a>
+
+					<ul class="list-reset mt-0 hidden md:flex space-x-6 lg:space-x-8">
+						{% for item in primaryNav %}
+							<li><a class="{{ css.navLink }} standard-link-hover" href="{{ item.url }}">{{ item.label }}</a></li>	
+						{% endfor %}
+					</ul>
+				</nav>
+
+				{# ==================================
+				MOBILE NAV
+				===================================== #}
+
+				<nav class="md:hidden flex flex-col">
+					<a class="flex" href="/"><img alt="Logo" style="width:60px" src="/assets/img/no-image.svg"></a>
+					{% set naviconLineClasses = 'absolute block bg-brand transform' %}
+
+					<button style="top:22px;height:60px;width:60px"
+							title="Menu"
+							class="mobile-nav-button flex items-center bg-white z-40 fixed right-0 mr-4 focus:outline-none js-toggle js-toggleScrollLock"
+							aria-controls="js-mobileNav"
+							data-active-target-id="js-mobileNav"
+							data-active-target="is-active"
+							data-active="is-active"
+							aria-expanded="false"
+					>
+						<span class="{{ naviconLineClasses }}"></span>
+						<span class="{{ naviconLineClasses }}"></span>
+						<span class="{{ naviconLineClasses }}"></span>
+					</button>
+
+					<div id="js-mobileNav" class="mobile-nav bg-gray-100 transition transform translate-x-full duration-320 ease-out fixed z-30 inset-0 overflow-y-auto" aria-hidden="true">
+
+						<div class="p-8 pt-16">
+							<ul class="space-y-6 text-center">
+								{% for item in primaryNav %}
+									<li><a href="{{ item.url }}" class="{{ css.navLinkOnLight }}">{{ item.label }}</a></li>
+								{% endfor %}
+							</ul>
+							{% if socialLinks.instagram|length or socialLinks.facebook|length %}
+								<ul class="flex text-center w-full mx-auto flex-wrap justify-center mt-8 space-x-4">
+									{% if socialLinks.instagram|length %}
+										<li>
+											<a target="_blank" title="Instagram" href="{{ socialLinks.instagram }}">
+												{{ svg('@webroot/assets/img/instagram.svg') }}
+											</a>
+										</li>
+									{% endif %}
+									{% if socialLinks.facebook|length %}
+										<li>
+											<a target="_blank" title="Facebook" href="{{ socialLinks.facebook }}">
+												{{ svg('@webroot/assets/img/facebook.svg') }}
+											</a>
+										</li>
+									{% endif %}
+								</ul>
+							{% endif %}
+						</div>
+					</div>
+				</nav>
+
+			{% endblock %}
+		{% endembed %}
+
+		{# =============================================================================== #}
+
+		<main>
+			{{ block('content') }}
+		</main>
+
+		{# =============================================================================== #}
+
+		{% embed '_partials/container.twig' with {
+			element:'footer',
+			variants:['squash'],
+			sectionBG: 'silver',
+			classes: ['mt-auto', 'relative'],
+		} %}
+			{% block content %}
+				{% set socialLinkCss = 'block transition-all hover:text-brand-highlight hover:-mt-[1px]' %}
+				{% set socialIconCss = 'block w-8 h-8' %}
+				<div class="flex justify-center">
+					{% if socialLinks.instagram|length or socialLinks.facebook|length %}
+						<ul class="list-reset flex flex-wrap justify-between">
+							{% if socialLinks.instagram|length %}
+								<li class="!p-1">
+									<a class="{{ socialLinkCss }}" title="Instagram" href="{{ socialLinks.instagram }}" target="_blank">
+										{{ svg('@webroot/assets/img/instagram.svg')|attr({ class: socialIconCss }) }}
+									</a>
+								</li>
+							{% endif %}
+							{% if socialLinks.facebook|length %}
+								<li class="!p-1">
+									<a class="{{ socialLinkCss }}" title="Facebook" href="{{ socialLinks.facebook }}" target="_blank">
+										{{ svg('@webroot/assets/img/facebook.svg')|attr({ class: socialIconCss }) }}
+									</a>
+								</li>
+							{% endif %}
+						</ul>
+					{% endif %}
+				</div>
+				<p class="text-center">&copy; {{ siteName }} {{ 'now'|date('Y') }}</p>
+			{% endblock %}
+		{% endembed %}
+
+	</div>
+
+	{# =============================================================================== #}
+
+	<script src="{{ siteUrl|trim('/', 'right') }}{{ mix('js/main.js') }}"></script>
+
+	{% if not craft.app.request.isPreview and craft.app.config.env == 'live' %}
+		{{ scripts.bodyEndScripts|raw }}
+	{% endif %}
+
+	{{ endBody() }}
+
+</body>
+</html>
+{% endminify %}

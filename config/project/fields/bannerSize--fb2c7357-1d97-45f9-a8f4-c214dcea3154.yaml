@@ -1,0 +1,45 @@
+columnSuffix: sqzvnhad
+contentColumnType: string
+fieldGroup: e525d53f-7298-43c3-8dca-edf8cfd1f8b2 # Common
+handle: bannerSize
+instructions: null
+name: 'Banner size'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Small
+        -
+          - value
+          - small
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Medium
+        -
+          - value
+          - medium
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Large
+        -
+          - value
+          - large
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

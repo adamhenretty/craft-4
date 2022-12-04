@@ -1,0 +1,23 @@
+{% if block.video|length %}
+    {% embed '_partials/container.twig' with{
+        elementID: 'section-' ~ loop.index,
+        variants: 'superSqueeze'
+    }%}
+        {% block content %}
+            {% set video = block.video[0] %}
+            {% if video.youtubeVideoId %}
+                <div class="w-full text-center">
+                    {% if video.heading|length %}
+                        <h2>{{ video.heading }}</h2>
+                    {% endif %}
+                    {{ video.body }}
+                    {% js '/assets/js/lite-youtube.min.js' with { 'async':'async', 'defer':'defer' } %}
+                    {% css '/assets/css/lite-youtube.css' %}
+                    <div class="spacing">
+                        <lite-youtube videoid="{{ video.youtubeVideoId }}" playlabel="{{ video.title ?? null }}" style="background-image: url('https://i.ytimg.com/vi/{{ video.youtubeVideoId }}/maxresdefault.jpg')"></lite-youtube>
+                    </div>
+                </div>
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endif %}

@@ -1,0 +1,20 @@
+{# ==================================
+A tickable element, used as a replacement
+for checkboxes and radios. Include the
+.custom-selectable class on a parent element
+===================================== #}
+
+{# Use with 'sectionBG: 'border-2 border-gray-300' #}
+{% set sectionBG = sectionBG ?? null %}
+
+{% css %}
+	.custom-selectable input:checked + span svg{ display:block; }
+	.custom-selectable span, .custom-selectable input:focus + span, .custom-selectable:hover span{
+		box-shadow:0 0 0 2px rgba(55,159,197,.2);
+	}
+	.bg-brand .custom-selectable input:focus + span, .custom-selectable:hover span{
+		box-shadow:0 0 0 2px #212121;
+	}
+{% endcss %}
+
+<span class="flex items-center justify-center bg-white h-4 w-4 mr-4 transition {{ sectionBG }} {{ radio is defined and radio ? 'rounded-full' : 'rounded' }}"><svg class="fill-current h-5 w-5 hidden text-brand pointer-events-none" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg></span>

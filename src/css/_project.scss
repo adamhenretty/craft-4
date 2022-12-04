@@ -1,0 +1,51 @@
+// collapse consecutive blocks of the same colour... be sure to always use bg-white even if it seems redundant!
+.bg-white:not(.with-bg-img) + .bg-white:not(.with-bg-img),.bg-gray-100:not(.with-bg-img) + .bg-gray-100:not(.with-bg-img),.bg-brand:not(.with-bg-img) + .bg-brand:not(.with-bg-img){ padding-top:0; }
+
+// --------------------------------------------
+// MOBILE NAV
+// --------------------------------------------
+
+.mobile-nav-button{
+	span{
+		transition:top .2s .25s, left .2s .25s, opacity .2s .25s, transform .2s 0s;
+		height:2px;left:14px;
+	}
+	span:nth-child(1){ top:19px;width:27px }
+	span:nth-child(2){ top:28px;width:22px; }
+	span:nth-child(3){ top:37px;width:17px; }
+	&.is-active{
+		span{
+			background: theme('colors.brand.DEFAULT');
+			top:28px;width:27px;
+			transition:background .2s, top .2s, left .2s, opacity .2s, transform .2s .25s;
+		}
+		span:nth-child(1){ transform:rotate(45deg) }
+		span:nth-child(2){ opacity:0; }
+		span:nth-child(3){ transform:rotate(-45deg) }
+	}
+}
+.mobile-nav{
+	transition-duration:.32s;
+	&.is-active{
+		transition-duration:.41s;
+		transition-timing-function:cubic-bezier(.54,.74,.02,.95);
+	}
+}
+
+// --------------------------------------------
+// LITE YOUTUBE OVERRIDES
+// --------------------------------------------
+
+lite-youtube{
+	margin-left: auto;
+	margin-right: auto;
+	max-width: none!important;
+	iframe{ margin-top: 0; }
+}
+
+// --------------------------------------------
+// ACCORDIONS
+// --------------------------------------------
+
+.is-active > .accordion-on{ display: block; }
+.is-active > .accordion-off{ display: none; }

@@ -1,0 +1,33 @@
+{% set item = category is defined ? category : entry %}
+{% set image = entry.bannerImg.one ?? null %}
+{% set bannerSize = item.bannerSize == 'large' ? 'min-h-[26rem] lg:min-h-[34rem]' : item.bannerSize == 'medium' ? 'min-h-[24rem] lg:min-h-[28rem]' : 'min-h-[8rem]' %}
+{% set opacity = item.bannerOpacity == '75' ? 'opacity-75' : item.bannerOpacity == '50' ? 'opacity-50' : item.bannerOpacity == '25' ? 'opacity-25' : 'opacity-0' %}
+
+<header class="flex flex-col justify-center relative bg-cover bg-brand {{ bannerSize }}">
+    {% set theTransform = transforms.heroBanner %}
+    {% if image|length %}
+		<div class="absolute inset-0 bg-gray-800 z-10 {{ opacity }}"></div>
+        <picture class="absolute inset-0">
+            <source srcset="{{ image.url({ transform: theTransform, format: 'webp' }) }}" type="image/webp">
+            <img src="{{ image.url(theTransform) }}" class="object-cover h-full w-full mt-0" alt="{{ image.alt }}" style="object-position:{{ image.focalPoint|first * 100 ~ '%' }} {{ image.focalPoint|last * 100 ~ '%' }};">
+        </picture>
+		{% if item.bannerSize == 'large' %}
+			{% js %}	
+				var button = document.getElementById('js-scrollToNextSection');
+				var firstSection = document.querySelector('#section-1');
+				button.addEventListener('click', (event) => {
+					firstSection.scrollIntoView();	
+				});
+			{% endjs %}
+			<button aria-label="Scroll to next section" id="js-scrollToNextSection" class="button-reset absolute bottom-0 left-1/2 -translate-x-1/2 z-10 transition-all text-white hover:text-gray-400">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 animate-bounce">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+				</svg>
+			</button>
+		{% endif %}
+    {% endif %}
+    
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 fl:py-16 relative z-20">
+       <h1 class="uppercase text-white fl:text-5xl {{ image|length ? 'md:w-1/2' : 'text-center' }}">{{ item.bannerTitle|length ? item.bannerTitle : item.title }}</h1>
+    </div>
+</header>

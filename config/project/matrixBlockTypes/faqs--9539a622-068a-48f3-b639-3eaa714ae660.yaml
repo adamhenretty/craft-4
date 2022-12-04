@@ -1,0 +1,180 @@
+field: 661f0cbe-8667-4984-aea8-55239d2f6e8e # Body builder
+fieldLayouts:
+  432b94a9-2abb-4fdb-90f4-320b0a094ee8:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 6adb7e46-7480-48f0-8503-676f5dcb6d72 # Section heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ef16edd8-8819-45ff-9ce8-ab6296c38a5a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 31c558bc-3f82-4d29-a067-7fa2b93522de # Body
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 778cadb4-f35a-4e74-a240-642e76c81d09
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 5d0c0bce-e3a1-4456-9adf-e626fda6307d # FAQs
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 929c0fbf-d2a2-4063-9a3d-0becdfc8428a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f1ed96c8-41e1-41af-95dd-225238b54c4b # Section background colour
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2f4bfbb-ea7d-4d39-95d5-689db8a47e1f
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 822a754e-a37f-49e3-b515-811d30bdfbfa
+        userCondition: null
+fields:
+  5d0c0bce-e3a1-4456-9adf-e626fda6307d: # FAQs
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: entries
+    instructions: null
+    name: FAQs
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      localizeRelations: false
+      maxRelations: null
+      minRelations: 1
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Entry
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\entries\EntryCondition
+      selectionLabel: null
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:505b38bf-8335-4f08-8031-39bc946af4ab' # FAQs
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  6adb7e46-7480-48f0-8503-676f5dcb6d72: # Section heading
+    columnSuffix: kyqdsofi
+    contentColumnType: text
+    fieldGroup: null
+    handle: sectionHeading
+    instructions: null
+    name: 'Section heading'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  31c558bc-3f82-4d29-a067-7fa2b93522de: # Body
+    columnSuffix: tiuuudyi
+    contentColumnType: text
+    fieldGroup: null
+    handle: body
+    instructions: null
+    name: Body
+    searchable: false
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: null
+      purifyHtml: true
+      redactorConfig: Simple.json
+      removeEmptyTags: false
+      removeInlineStyles: false
+      removeNbsp: false
+      showHtmlButtonForNonAdmins: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  f1ed96c8-41e1-41af-95dd-225238b54c4b: # Section background colour
+    columnSuffix: hmrvkifm
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionBG
+    instructions: null
+    name: 'Section background colour'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - White
+            -
+              - value
+              - white
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Silver
+            -
+              - value
+              - silver
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: faqs
+name: FAQs
+sortOrder: 5
