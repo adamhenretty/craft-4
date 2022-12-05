@@ -172,14 +172,14 @@ NAVIGATION
 								<ul class="flex text-center w-full mx-auto flex-wrap justify-center mt-8 space-x-4">
 									{% if socialLinks.instagram|length %}
 										<li>
-											<a target="_blank" title="Instagram" href="{{ socialLinks.instagram }}">
+											<a class="text-brand" target="_blank" title="Instagram" href="{{ socialLinks.instagram }}">
 												{{ svg('@webroot/assets/img/instagram.svg') }}
 											</a>
 										</li>
 									{% endif %}
 									{% if socialLinks.facebook|length %}
 										<li>
-											<a target="_blank" title="Facebook" href="{{ socialLinks.facebook }}">
+											<a class="text-brand" target="_blank" title="Facebook" href="{{ socialLinks.facebook }}">
 												{{ svg('@webroot/assets/img/facebook.svg') }}
 											</a>
 										</li>
@@ -208,7 +208,7 @@ NAVIGATION
 			classes: ['mt-auto', 'relative'],
 		} %}
 			{% block content %}
-				{% set socialLinkCss = 'block transition-all hover:text-brand-highlight hover:-mt-[1px]' %}
+				{% set socialLinkCss = 'block transition-all text-brand hover:text-brand-highlight hover:-mt-[1px]' %}
 				{% set socialIconCss = 'block w-8 h-8' %}
 				<div class="flex justify-center">
 					{% if socialLinks.instagram|length or socialLinks.facebook|length %}

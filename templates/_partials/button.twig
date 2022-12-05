@@ -40,7 +40,7 @@ COLOUR
 SIZE
 ===================================== #}
 
-{% set _buttonSize = 'px-4 py-2 md:py-3 md:px-8 w-full fl:text-base' %}
+{% set _buttonSize = 'px-4 py-2 md:py-4 md:px-8 w-full fl:text-base' %}
 {% if 'jumbo' in variants %}
 	{% set _buttonSize = 'px-8 py-3 md:py-4 md:px-10 w-full fl:text-md' %}
 {% endif %}
@@ -52,7 +52,7 @@ SIZE
 STITCH EVERYTHING TOGETHER...
 ===================================== #}
 
-{% set classes = 'leading-none flex items-center justify-center text-center font-bold font-display transition relative rounded-full active:top-px hover:ring-1 focus:ring-1 ring-inset ring-offset-2 ring-white ring-opacity-30 ' ~ _buttonColor ~ ' ' ~ _buttonSize ~ ' ' ~ classes|join(' ') %}
+{% set classes = 'leading-none flex items-center justify-center text-center font-bold font-display transition relative rounded-full active:top-px hover:ring-2 focus:ring-2 ring-inset ring-offset-2 ring-white ring-opacity-80 ' ~ _buttonColor ~ ' ' ~ _buttonSize ~ ' ' ~ classes|join(' ') %}
 
 {# ======================================================================= #}
 

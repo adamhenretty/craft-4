@@ -57,7 +57,6 @@ Automatically alternate L/R using cycle()
 									<source srcset="{{ img.url({ transform: theTransform, format: 'webp' }) }}" type="image/webp">
 									<img src="{{ img.url(theTransform) }}" class="mt-0 object-cover object-center w-full {{ block.imgOptions == 'constrainedFullHeight' ? 'h-full' }} max-w-none" alt="{{ img.alt ?? null }}">
 								</picture>
-								{# <img class="object-cover object-center w-full {{ block.imgOptions == 'constrainedFullHeight' ? 'h-full' }} max-w-none" src="{{ img.url(transforms.split50) }}" alt="{{ img.alt ?? null }}"> #}
 							</div>
 						</div>
 					{% else %}
@@ -67,7 +66,6 @@ Automatically alternate L/R using cycle()
                                 <source srcset="{{ img.url({ transform: theTransform, format: 'webp' }) }}" type="image/webp">
                                 <img src="{{ img.url(theTransform) }}" class="mt-0 object-cover object-center w-full {{ block.imgOptions == 'fullWidthFullHeight' ? 'h-full' }} max-w-none" alt="{{ img.alt ?? null }}">
                             </picture>
-							{# <img class="object-cover object-center w-full {{ block.imgOptions == 'fullWidthFullHeight' ? 'h-full' }} max-w-none" src="{{ img.url(transforms.split50) }}" alt="{{ img.alt ?? null }}"> #}
 						</div>
 					{% endif %}
 				{% endif %}
